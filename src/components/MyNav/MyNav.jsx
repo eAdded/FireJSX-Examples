@@ -1,8 +1,9 @@
 import Link from "firejsx/Link";
 import Style from "./Style.css";
+import NameContext from "../../Hooks/NameContext";
 
 export default function () {
-    const {name} = React.useContext(global.NameContext);
+    const {name} = React.useContext(NameContext);
     return (
         <nav className={Style.nav}>
             <Link href={"/"}>

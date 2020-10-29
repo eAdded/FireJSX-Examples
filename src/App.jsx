@@ -2,21 +2,18 @@ import "./styles/main.css"
 import Page from "firejsx/Page";
 import React from "react";
 import MyNav from "./components/MyNav/MyNav";
-
-global.NameContext = require("./Hooks/NameContext").default;
+import NameContext from "./Hooks/NameContext";
 
 function my_reducer(state) {
-    return state ? undefined : "Aniket";
+    return state ? '' : "Aniket";
 }
 
 FireJSX.app = props => {
-    const [name, dispatch] = React.useReducer(my_reducer, undefined);
+    const [name, dispatch] = React.useReducer(my_reducer, '');
     return (
-        <div>
-            <global.NameContext.Provider value={{name, dispatch}}>
-                <MyNav/>
-                <Page {...props}/>
-            </global.NameContext.Provider>
-        </div>
+        <NameContext.Provider value={{name, dispatch}}>
+            <MyNav/>
+            <Page {...props}/>
+        </NameContext.Provider>
     )
 }

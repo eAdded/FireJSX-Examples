@@ -1,5 +1,7 @@
+import NameContext from "../Hooks/NameContext";
+
 export default function () {
-    const {name, dispatch} = React.useContext(global.NameContext);
+    const {name, dispatch} = React.useContext(NameContext);
     return (
         <div>
             <button onClick={dispatch}>
